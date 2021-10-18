@@ -18,7 +18,6 @@ import NoImage from "../images/no_image.jpg";
 
 const Home = () => {
   const { state, loading, error, setSearchTerm } = useHomeFetch();
-  console.log(state);
 
   return (
     <>

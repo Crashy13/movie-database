@@ -13,15 +13,15 @@ import NotFound from "./components/NotFound";
 import { GlobalStyle } from "./GlobalStyle";
 
 const App = () => (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/:movieid' element={<Movie />} />
-        <Route path='/*' element={<NotFound />} />
-      </Routes>
-      <GlobalStyle />
-    </Router>
-  );
+  <Router>
+    <Header />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:movieId" element={<Movie />} />
+      <Route path="/*" element={<NotFound />} />
+    </Routes>
+    <GlobalStyle />
+  </Router>
+);
 
 export default App;

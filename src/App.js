@@ -1,19 +1,27 @@
-import React from 'react';
-//Components
-import Header from './components/Header';
-import Home from './components/Home';
+import React from "react";
 
-//Styles
-import { GlobalStyle } from './GlobalStyle';
+// Routing
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const App = () => {
-  return (
-    <div className="App">
-      <Header/>
-      <Home />
+// Components
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Movie from "./components/Movie";
+import NotFound from "./components/NotFound";
+
+// Styles
+import { GlobalStyle } from "./GlobalStyle";
+
+const App = () => (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/:movieid' element={<Movie />} />
+        <Route path='/*' element={<NotFound />} />
+      </Routes>
       <GlobalStyle />
-    </div>
+    </Router>
   );
-}
 
 export default App;

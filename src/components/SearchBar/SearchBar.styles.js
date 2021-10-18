@@ -19,10 +19,10 @@ export const Content = styled.div`
   color: var(--white);
 
   img {
-      position: absolute;
-      left: 15px;
-      top: 14px;
-      width: 30px;
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    width: 30px;
   }
 
   input {

@@ -23,11 +23,12 @@ export const useHomeFetch = () => {
 
       const movies = await API.fetchMovies(searchTerm, page);
 
-      setState((prev) => ({
+      setState((prev, x) => {
+        return {
         ...movies,
         results:
           page > 1 ? [...prev.results, ...movies.results] : [...movies.results],
-      }));
+      }});
     } catch (error) {
       setError(true);
     }

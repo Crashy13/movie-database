@@ -27,10 +27,13 @@ export const useHomeFetch = () => {
 
       setState((prev, x) => {
         return {
-        ...movies,
-        results:
-          page > 1 ? [...prev.results, ...movies.results] : [...movies.results],
-      }});
+          ...movies,
+          results:
+            page > 1
+              ? [...prev.results, ...movies.results]
+              : [...movies.results],
+        };
+      });
     } catch (error) {
       setError(true);
     }
@@ -40,15 +43,15 @@ export const useHomeFetch = () => {
   // Initial render and search
   useEffect(() => {
     if (!searchTerm) {
-      const sessionState = isPersistedState('homeState')
+      const sessionState = isPersistedState("homeState");
 
       if (sessionState) {
-        console.log('Grabbing from session storage')
+        console.log("Grabbing from session storage");
         setState(sessionState);
         return;
       }
     }
-    console.log('Grabbing from API')
+    console.log("Grabbing from API");
     setState(initialState);
     fetchMovies(1, searchTerm);
   }, [searchTerm]);
@@ -63,8 +66,8 @@ export const useHomeFetch = () => {
 
   // write to session storage
   useEffect(() => {
-    if (!searchTerm) sessionStorage.setItem('homeState', JSON.stringify(state));
-  }, [searchTerm, state])
+    if (!searchTerm) sessionStorage.setItem("homeState", JSON.stringify(state));
+  }, [searchTerm, state]);
 
   return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
 };
